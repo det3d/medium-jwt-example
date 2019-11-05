@@ -20,7 +20,48 @@ const UserSchema = new Schema({
         type: String,
         trim: true,
         required: true
-    }
+    },
+    avatar: {
+        type: String,
+        trim: true,
+        required: false
+    },
+    licensePlate: {
+        type: String,
+        trim: true,
+        required: false
+    },
+    driversLicense: {
+        type: String,
+        trim: true,
+        required: false
+    },
+    startDate: {
+        type: Date,
+        required: false
+    },
+    data: [new mongoose.Schema({
+        _id: false,
+        Name: {
+            type: String
+        },
+        Text: {
+            type: String
+        }
+    }, {
+        strict: false
+    })],
+    logins: [new mongoose.Schema({
+        _id: false,
+        Name: {
+            type: String
+        },
+        Text: {
+            type: String
+        }
+    }, {
+        strict: false
+    })]
 });
 
 //hash user password before saving into database

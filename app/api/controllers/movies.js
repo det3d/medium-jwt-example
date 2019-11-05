@@ -19,7 +19,7 @@ module.exports = {
     },
     getAll: function (req, res, next) {
         let moviesList = [];
-        movieModel.fund({}, function (err, movies) {
+        movieModel.find({}, function (err, movies) {
             if (err) {
                 next(err);
             } else {
