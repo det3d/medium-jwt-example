@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-
     create: function (req, res, next) {
         userModel.create({
             name: req.body.name,
@@ -20,7 +19,6 @@ module.exports = {
                 });
         });
     },
-
     authenticate: function (req, res, next) {
         userModel.findOne({
             email: req.body.email
@@ -34,7 +32,6 @@ module.exports = {
                     }, req.app.get('secretKey'), {
                         expiresIn: '1h'
                     });
-
                     res.json({
                         status: "success",
                         message: "user found!!!",
